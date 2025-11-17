@@ -4,8 +4,9 @@ import sqlite3
 # ==========================================
 # 1) 경로 설정
 # ==========================================
-excel_path = "Users/a/Desktop/cursor/DataAnalysis/2025_유저_동향_자료.xlsx"
-db_path = "Users/a/Desktop/cursor/DataAnalysis/user_feedback_normalized.db"
+excel_path = "/Users/a/Desktop/cursor/PythonPandas/DataAnalysis/2025_유저_동향_자료.xlsx"
+db_path = "/Users/a/Desktop/cursor/PythonPandas/DataAnalysis/user_feedback_normalized.db"
+
 
 # 원본 데이터 불러오기
 df = pd.read_excel(excel_path)
@@ -102,7 +103,7 @@ fact_df = df[[
 ]].copy()
 
 fact_df["feedback_id"] = fact_df.index + 1
-fact_df["post_id"] = fact_df["feedback_id"]
+fact_df["post_id"] = fact_df.index + 3000
 
 fact_df = fact_df[[
     "feedback_id", "post_id", "period_id", "region_id",
